@@ -1,7 +1,7 @@
 import json
 import sys
-import tornado.ioloop
-import tornado.web
+import lib/tornado.ioloop
+import lib/tornado.web
 
 from config import ACCESS_TOKEN, VERIFY_TOKEN
 
