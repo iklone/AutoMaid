@@ -17,11 +17,7 @@ def send_message(access_token, recipient_id, text, passive=False):
     else:
         args.append('-F')
         args.append('messaging_type=RESPONSE')
-    args.append(
-        'localhost:1337/webhook'.format(
-            access_token
-        )
-    )
+    args.append('localhost:1337/webhook')
 
     # Execute
     p = subprocess.Popen(args, stdout=subprocess.PIPE, shell=False)
