@@ -1,4 +1,7 @@
 from chatterbot import ChatBot
+import os
+import shutil
+import chatterbot_corpus
 
 class MaidChatDriver(object):
     def __init__(self, storage_adapter):
@@ -8,11 +11,15 @@ class MaidChatDriver(object):
             storage_adapter = 'chatterbot.storage.SQLStorageAdapter',
             database = './AMAI.sqlite3'
         )
-        '''
         self.chatbot.train(
             "chatterbot.corpus.english.conversations",
-            "chatterbot.corpus.english.greetings"
-        '''
+            "chatterbot.corpus.english.greetings",
+            "chatterbot.corpus.english.ai",
+            "chatterbot.corpus.english.humor",
+            "chatterbot.corpus.custom.maidcorpus",
+            "chatterbot.corpus.custom.maidcorpus",
+            "chatterbot.corpus.custom.maidcorpus"
+        )
         print "AMAI initialised"
 
     def get_response(self, query):
