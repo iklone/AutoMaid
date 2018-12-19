@@ -20,8 +20,16 @@ class WebhookDriver(tornado.web.RequestHandler):
         self.set_status(403)
         return
 
+    def options(self):
+        self.set_status(200)
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Methods", "POST")
+        self.set_header("Access-Control-Allow-Headers", "*")
+        return
+
     #POST
     def post(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
         msg = json.loads(self.request.body)
 
         fb_message = msg.get('message', {})
@@ -32,7 +40,7 @@ class WebhookDriver(tornado.web.RequestHandler):
             print(">" + sender + ":\t" + query)
 
             response = str(self.application.chatbot.getResponse(query) )
-            print ">AMAI:\t" + response
+            print ">AMAI:\t" + response + "\n"
 
         elif 'attachments' in fb_message:
             #attachment message (image)
@@ -43,7 +51,7 @@ class WebhookDriver(tornado.web.RequestHandler):
                 response = "Goodbye, master"
                 shutdown()
 
-        self.write(response + "\n")
+        self.write(response)
 
 def shutdown():
     tornado.ioloop.IOLoop.current().stop()
