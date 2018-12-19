@@ -1,0 +1,5 @@
+#!/bin/bash
+msg=$1
+dashD='{"sender": "James", "message": {"text": "'$msg'"}}'
+curl -H "Content-Type: application/json" -X POST "localhost:1337/webhook" -d "$dashD"
+
