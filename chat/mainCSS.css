@@ -1,0 +1,95 @@
+body {
+  font-family: "PT Sans", sans-serif;
+  /*font-family: "Helvetica";*/
+  margin: 0px;
+  background-color: #e8e1ed;
+}
+.header {
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  /*color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;*/
+}
+  .header h1 {
+    padding-top: 30;
+    margin: 0px;
+    font-size: 40px;
+  }
+  .header h3 {
+    margin-top: 12px;
+    margin-bottom: 25px;
+  }
+  .header nav {
+    padding: 25px;
+  }
+  .header a {
+    margin: 25px;
+    color: black;
+    text-decoration: none;
+  }
+    .header a:hover {
+      color: purple;
+    }
+    .header img {
+      opacity: .75;
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+    }
+    .header .headerText {
+      position: relative;
+      top: -285px;
+    }
+    .header .name {
+      opacity: 0.3;
+      margin: 5px;
+      position: fixed;
+      right: 0;
+      top: 0;
+      text-align: right;
+    }
+    .header .name a {
+      margin: 0px;
+    }
+
+.body {
+  position: relative;
+  top: -160px;
+  left: 5%;
+  width: 90%;
+}
+
+.primary {
+  float: left;
+  width: 70%;
+}
+  .body article {
+    background-color: white;
+    border: 1px solid #d2addb;
+    margin-bottom: 50px;
+    padding: 35px;
+  }
+  .body article img {
+    max-width: 80%;
+    max-height: 500px;
+    display: block;
+    margin: auto;
+  }
+  .body article h1 a {
+    color: black;
+    text-decoration: none;
+  }
+  .body article h1 a:hover {
+    color: purple;
+  }
+
+.secondary {
+  float: right;
+  width: 25%;
+}
+  .secondary hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
