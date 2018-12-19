@@ -31,15 +31,22 @@ class WebhookDriver(tornado.web.RequestHandler):
             query = fb_message['text']
             print(">" + sender + ":\t" + query)
 
-            response = str(self.application.chatbot.get_response(query) )
+            response = str(self.application.chatbot.getResponse(query) )
             print ">AMAI:\t" + response
 
         elif 'attachments' in fb_message:
             #attachment message (image)
             print("Sender message is attachment")
 
+        if response.startswith("*"):
+            if response == "*shutdown":
+                response = "Goodbye, master"
+                shutdown()
+
         self.write(response + "\n")
-        #send_message("access_token", "recipient_id", "text", False)
+
+def shutdown():
+    tornado.ioloop.IOLoop.current().stop()
 
 def main():
     #tornado

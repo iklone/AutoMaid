@@ -12,16 +12,20 @@ class MaidChatDriver(object):
             database = './AMAI.sqlite3'
         )
         self.chatbot.train(
-            "chatterbot.corpus.english.conversations",
-            "chatterbot.corpus.english.greetings",
-            "chatterbot.corpus.english.ai",
-            "chatterbot.corpus.english.humor",
-            "chatterbot.corpus.custom.maidcorpus",
-            "chatterbot.corpus.custom.maidcorpus",
-            "chatterbot.corpus.custom.maidcorpus"
+            #"chatterbot.corpus.english.conversations",
+            #"chatterbot.corpus.english.greetings",
+            #"chatterbot.corpus.english.ai",
+            #"chatterbot.corpus.english.humor",
+            #"chatterbot.corpus.custom.maidcorpus",
+            #"chatterbot.corpus.custom.maidcorpus",
+            #"chatterbot.corpus.custom.maidcorpus"
         )
         print "AMAI initialised"
 
-    def get_response(self, query):
+    def getResponse(self, query):
+        if "shutdown" in query:
+            return "*shutdown"
+
+        #default- revert to chatterbot
         response = self.chatbot.get_response(query)
         return response
